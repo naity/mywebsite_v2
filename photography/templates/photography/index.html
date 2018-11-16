@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load photography_extras %}
+{% load staticfiles %}
+
+{% block title %}Photography{% endblock %}
+
+{% block block_head %}
+  <link href="{% static 'photography/Gallery-2.33.0/css/blueimp-gallery.min.css' %}" rel="stylesheet">
+  <link href="{% static 'photography/Bootstrap-Image-Gallery-3.4.2/css/bootstrap-image-gallery.css' %}" rel="stylesheet">
+  <link href="{% static 'photography/Bootstrap-Image-Gallery-3.4.2/css/demo.css' %}" rel="stylesheet">
+  <link href="{% static 'photography/css/photography.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block block_nav %}
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="{% url 'home:index' %}">HOME</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="{% url 'research:index' %}">RESEARCH</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="{% url 'coding:index' %}">CODING</a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link js-scroll-trigger" href="{% url 'photography:index' %}">PHOTOGRAPHY</a>
+  </li>
+{% endblock %}
+
+{% block block_body %}
+  <div class="container">
+    <div class="page-header">
+      <h2 class="text-primary">Moments</h2>
+    </div>
+    <blockquote class="blockquote">
+      <p>In short, beauty is everywhere. It is not she that is lacking to our eye, but our eyes which fail to perceive her.</p>
+      <footer class="blockquote-footer"><cite title="Source Title">Auguste Rodin</cite>, French Sculptor</footer>
+    </blockquote>
+
+    <!-- The container for the list of photos -->
+    <div id="links">
+      <div class="row">
+        {% for photo in photos %}
+          <div class="col-md-6 col-xs-12">
+            <div class="card">
+              <div class="card-body text-center">
+                <a href="{{ photo.image.url }}" title="{{ photo.title }}" data-gallery="">
+                  <img src="{{ photo.image.url }}" class="img-fluid dynamic-heights">
+                </a>
+              </div>
+              <div class="card-footer">
+                <h4 class="card-title">{{ photo.title }}</h4>
+                {% if photo.id|is_not_liked:liked %}
+                  <button type="button" class="btn btn-outline-danger like-photo" data-photoid="{{photo.id}}">
+                      <i class="fa fa-heart" aria-hidden="true"></i><span class="like-number">{{ photo.likes }}</span>
+                  </button>
+                {% else %}
+                  <button type="button" class="btn btn-outline-danger like-photo" data-photoid="{{photo.id}}" disabled>
+                      <i class="fa fa-heart" aria-hidden="true"></i><span class="like-number">{{ photo.likes }}</span>
+                  </button>
+                {% endif %}                    
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <br>
+    <p class="text-center">
+      <a href="https://500px.com/yuantianphotography" target="_blank">View my portfolio at
+        <img src="{% static 'photography/imgs/500px.png' %}">
+      </a>
+    </p>
+  </div>
+
+  <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+  <div id="blueimp-gallery" class="blueimp-gallery">
+      <!-- The container for the modal slides -->
+      <div class="slides"></div>
+      <!-- Controls for the borderless lightbox -->
+      <h3 class="title"></h3>
+      <a class="prev">‹</a>
+      <a class="next">›</a>
+      <a class="close">×</a>
+      <a class="play-pause"></a>
+      <ol class="indicator"></ol>
+      <!-- The modal dialog, which will be used to wrap the lightbox content -->
+      <div class="modal fade">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title"></h4>
+                  </div>
+                  <div class="modal-body next"></div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default pull-left prev">
+                          <i class="glyphicon glyphicon-chevron-left"></i>
+                          Previous
+                      </button>
+                      <button type="button" class="btn btn-primary next">
+                          Next
+                          <i class="glyphicon glyphicon-chevron-right"></i>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+{% endblock %}
+
+{% block block_footer %}
+  <script src="{% static 'photography/Gallery-2.33.0/js/jquery.blueimp-gallery.min.js' %}"></script>
+  <script src="{% static 'photography/Bootstrap-Image-Gallery-3.4.2/js/bootstrap-image-gallery.js' %}"></script>
+  <script src="{% static 'photography/Bootstrap-Image-Gallery-3.4.2/js/demo.js' %}"></script>
+  <script src="{% static 'photography/js/image_heights.js' %}"></script>
+  <script src="{% static 'photography/js/like_photo_ajax.js' %}"></script>
+{% endblock %}

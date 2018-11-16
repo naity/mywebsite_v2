@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Immunologist, Programmer and Photographer{% endblock %}
+
+{% block block_nav %}
+  <li class="nav-item active">
+    <a class="nav-link js-scroll-trigger" href="{% url 'home:index' %}">HOME</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="{% url 'research:index' %}">RESEARCH</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="{% url 'coding:index' %}">CODING</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="{% url 'photography:index' %}">PHOTOGRAPHY</a>
+  </li>
+{% endblock %}
+
+{% block block_body %}
+  <div class="my-auto">
+    <h1 class="mb-0">YUAN
+      <span class="text-primary">TIAN</span>
+    </h1>
+    <div class="subheading mb-5">La Jolla Institute for Immunology · 9420 Athena Cir, La Jolla, CA 92037  ·
+      <a href="mailto:name@email.com">ytian@lji.org</a>
+    </div>
+    <p class="lead mb-5">I am an immunologist with bioinformatics and programming skills. Interested in data analysis, machine learning, and deep learning.</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/ytianimmune/" target="_blank"> 
+        <i class="fab fa-linkedin-in" title="LinkedIn"></i>
+      </a>
+      <a href="https://medium.com/@yuan_tian" target="_blank">
+        <i class="fab fa-medium-m" title="Medium"></i>
+      </a>
+      <a href="https://github.com/naity" target="_blank">
+        <i class="fab fa-github" title="GitHub"></i>
+      </a>
+      <a href="https://twitter.com/_ytian_" target="_blank">
+        <i class="fab fa-twitter" title="Twitter"></i>
+      </a>
+    </div>
+  </div>
+{% endblock %}

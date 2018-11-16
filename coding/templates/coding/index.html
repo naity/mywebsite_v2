@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Immunologist, Programmer and Photographer{% endblock %}
+
+{% block block_nav %}
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="{% url 'home:index' %}">HOME</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="{% url 'research:index' %}">RESEARCH</a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link js-scroll-trigger" href="{% url 'coding:index' %}">CODING</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="{% url 'photography:index' %}">PHOTOGRAPHY</a>
+  </li>
+{% endblock %}
+
+{% block block_body %}
+  <div class="container">
+    <div class="page-header">
+        <h2 class="text-primary">PROGRAMMING</h2>
+    </div>
+    <div class="subheading mb-2">Languages &amp; Tools</div>
+    <ul class="list-inline dev-icons">
+      <li class="list-inline-item">
+        <i class="fab fa-python" title="Python"></i>
+      </li>
+      <li class="list-inline-item">
+        <i class="fab fa-r-project" title="R"></i>
+      </li>
+      <li class="list-inline-item">
+        <i class="fab fa-linux" title="Linux"></i>
+      </li>
+      <li class="list-inline-item">
+        <i class="fab fa-html5" title="HTML"></i>
+      </li>
+      <li class="list-inline-item">
+        <i class="fab fa-css3-alt" title="CSS"></i>
+      </li>
+      <li class="list-inline-item">
+        <i class="fab fa-js" title="JavaScript"></i>
+      </li>
+    </ul>
+      
+    <div class="subheading mb-2">Bioinformatics</div>
+    <ul>
+      <li class="lead">
+        RNA-Seq (DESeq2, Gene Set Enrichment Analysis)
+      </li>
+      <li class="lead">
+        TCR (MiXCR, VDJtools)
+      </li>
+      <li class="lead">
+        High-dimensional single-cell data (CyTOF, t-SNE, SPADE)
+      </li>
+    </ul>
+
+    <div class="subheading mb-2">Selected Completed Courses</div>
+    <ul>
+      <li class="lead">
+        Deep Learning Specialization (Andrew Ng)
+      </li>
+      <li class="lead">
+        Practical Deep Learning for Coders (Fastai)
+      </li>
+      <li class="lead">
+        Machine Learning (Andrew Ng)
+      </li>
+      <li class="lead">
+        Applied Data Science with Python (University of Michigan)
+      </li>
+      <li class="lead">
+        Algorithms: Design and Analysis (Stanford)
+      </li>
+      <li class="lead">
+        Introduction to Computer Science (MIT)
+      </li>
+      <li class="lead">
+        Mathematics for Computer Science (MIT)
+      </li>
+    </ul>
+
+    <div class="subheading mb-2">Blog on Data Analysis and Deep Learning</div>
+    <div class="social-icons">
+      <a href="https://medium.com/@yuan_tian" target="_blank">
+        <i class="fab fa-medium-m" title="Blog"></i>
+      </a>
+    </div>
+  </div>
+{% endblock %}
