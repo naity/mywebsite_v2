@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = bool(os.environ.get('DEBUG'))
 
 if not DEBUG:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'safe-coast-50444.herokuapp.com']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'safe-coast-50444.herokuapp.com', '.ytian.me']
 
 
 # Application definition
