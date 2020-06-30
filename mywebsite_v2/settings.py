@@ -27,6 +27,8 @@ DEBUG = bool(os.environ.get('DEBUG'))
 
 if not DEBUG:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'safe-coast-50444.herokuapp.com', '.ytian.me']
+else:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -153,6 +155,6 @@ DEFAULT_FILE_STORAGE = 'mywebsite_v2.storage_backends.MediaStorage'
 
 
 # Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# import dj_database_url
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)

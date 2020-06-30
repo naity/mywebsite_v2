@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% block title %}Coding{% endblock %}
 
@@ -23,6 +23,7 @@
     <div class="page-header">
         <h2 class="text-primary">PROGRAMMING</h2>
     </div>
+
     <div class="subheading mb-2">Languages &amp; Tools</div>
     <ul class="list-inline dev-icons">
       <li class="list-inline-item">
@@ -44,17 +45,22 @@
         <i class="fab fa-js" title="JavaScript"></i>
       </li>
     </ul>
-      
+
+    <div class="subheading mb-2">Machine Learning and Deep Learning</div>
+    <div id="medium-widget"></div>
+    <script src="https://medium-widget.pixelpoint.io/widget.js"></script>
+    <script>MediumWidget.Init({renderTo: '#medium-widget', params: {"resource":"https://medium.com/@yuan_tian","postsPerLine":4,"limit":10,"picture":"big","fields":["description","author","claps","publishAt"],"ratio":"landscape"}})</script>
+
     <div class="subheading mb-2">Bioinformatics</div>
     <ul>
       <li class="lead">
-        RNA-Seq (DESeq2, Gene Set Enrichment Analysis)
+        High-dimensional single-cell data analysis (Single-cell sequencing, CITE-seq, CyTOF)
       </li>
       <li class="lead">
-        TCR (MiXCR, VDJtools)
+        Bulk RNA-sequencing analysis 
       </li>
       <li class="lead">
-        High-dimensional single-cell data (CyTOF, t-SNE, SPADE)
+        Immune receptor repertoire analysis
       </li>
     </ul>
 
@@ -92,6 +98,6 @@
         <i class="fab fa-github" title="GitHub"></i>
       </a>
     </div>
-
+    
   </div>
 {% endblock %}
